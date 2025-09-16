@@ -32,6 +32,34 @@ export default function Navegacion() {
         component={RegistroUsuario}
         options={{ tabBarButton: () => null}}
       ></tab.Screen>
+
+
+      // Agrego rene
+        <tab.Screen
+        name='SeleccionModeloCamisa'
+        component={SeleccionModeloCamisa}
+    //    options={{ tabBarButton: () => null}}
+      ></tab.Screen>
+
+
+        <tab.Screen
+        name='SeleccionColor'
+        component={SeleccionColor}
+   //     options={{ tabBarButton: () => null}}
+      ></tab.Screen>
+
+        <tab.Screen
+        name='AccesoCamara'
+        component={AccesoCamara}
+    //    options={{ tabBarButton: () => null}}
+      ></tab.Screen>
+
+      
+        <tab.Screen
+        name='VistaPrevia'
+        component={VistaPrevia}
+ //       options={{ tabBarButton: () => null}}
+      ></tab.Screen>
         </tab.Navigator>
   </NavigationContainer>
    
