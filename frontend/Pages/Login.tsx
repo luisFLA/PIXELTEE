@@ -34,7 +34,7 @@ const navigation = useNavigation();
                 contraseña:contraseña
             }
             
-        const respuesta= await fetch('http://192.168.1.38:5000/login', {
+        const respuesta= await fetch('http://localhost:5000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
