@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Text, TouchableOpacity, View, Image } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { ModeloCamisa } from '../Models/ModeloCamisa'
+import { ModeloCamisa } from '../Modelos/ModeloCamisa'
 export default function SeleccionModeloCamisa() {
   const [modeloCammisa] = useState<ModeloCamisa[]>([
     { id: "1", nombre: "Polo", img: "" },
