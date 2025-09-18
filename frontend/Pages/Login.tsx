@@ -1,34 +1,39 @@
-import { View, Text, TextInput, Button, Alert } from 'react-native'
-import React, { useState } from 'react'
-import { Usuario } from '../Modelos/Usuario'
-import { useNavigation } from '@react-navigation/native';
-import { Link } from '@react-navigation/native';
-
+import React, { useState } from "react";
 import {
- 
+  View,
+  Text,
+  TextInput,
   TouchableOpacity,
- 
+  Alert,
   KeyboardAvoidingView,
   Platform,
   SafeAreaView,
   StatusBar,
 } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
 import { loginStyles } from "../Estilo/LoginStyle";
 
-  
 export default function Login() {
-const navigation = useNavigation();
-    const [nombre, setNombre] = useState<string>('')
-    const [contraseña, setContraseña] = useState<string>('')
- 
+  const navigation = useNavigation();
+  const [nombre, setNombre] = useState<string>("");
+  const [contraseña, setContraseña] = useState<string>("");
 
-    async function login(nombre: string, contraseña:string){
-        if (!nombre || !contraseña) {
-        Alert.alert('Error', 'Por favor, completa todos los campos.');
-        return;
+  async function login(nombre: string, contraseña: string) {
+    if (!nombre || !contraseña) {
+      Alert.alert("Error", "Por favor, completa todos los campos.");
+      return;
     }
+    try {
+      const resp = await fetch("http://192.168.1.38:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, contraseña }),
+      });
+      const data = await resp.json();
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             let usuario: Usuario={
                 nombre:nombre,
                 contraseña:contraseña
@@ -54,17 +59,37 @@ const navigation = useNavigation();
          {
              Alert.alert('Ocurrio un error, credenciales incorrectas')
         }
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+      if (data.success === true && data.noUser === false) {
+        Alert.alert("Login Exitoso");
+        navigation.navigate("InicioUsuario" as never);
+      } else if (data.noUser === true && data.success === false) {
+        Alert.alert("Login Exitoso (Admin)");
+        navigation.navigate("InicioAdministrador" as never);
+      } else {
+        Alert.alert("Credenciales incorrectas");
+      }
+    } catch {
+      Alert.alert("Error", "No se pudo conectar con el servidor.");
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     }
+  }
 
-    return (
-       <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+  return (
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <StatusBar barStyle="dark-content" />
-      <KeyboardAvoidingView
-        style={{ flex: 1 }}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-      >
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
         <View style={loginStyles.container}>
-          {/* Título limpio, quita el <Text>Login</Text> suelto */}
           <Text style={loginStyles.title}>Inicia Sesión</Text>
           <Text style={loginStyles.subtitle}>Bienvenido de nuevo</Text>
 
@@ -92,23 +117,15 @@ const navigation = useNavigation();
             />
           </View>
 
-          {/* Botón primario negro */}
-          <TouchableOpacity
-            style={loginStyles.button}
-            onPress={() => login(nombre, contraseña)}
-          >
+          <TouchableOpacity style={loginStyles.button} onPress={() => login(nombre, contraseña)}>
             <Text style={loginStyles.buttonText}>Iniciar Sesión</Text>
           </TouchableOpacity>
 
-          {/* Enlace a registro */}
-          <TouchableOpacity
-            style={{ marginTop: 12 }}
-            onPress={() => navigation.navigate("RegistroUsuario" as never)}
-          >
+          <TouchableOpacity style={{ marginTop: 12 }} onPress={() => navigation.navigate("RegistroUsuario" as never)}>
             <Text style={loginStyles.link}>¿No tienes cuenta? Regístrate</Text>
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
-    )
+  );
 }

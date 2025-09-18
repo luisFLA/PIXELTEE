@@ -1,67 +1,70 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { NavigationContainer } from '@react-navigation/native';
-import Login from '../Pages/Login';
-import InicioUsuario from '../Pages/InicioUsuario';
-import { TabBarItemLabelVisibilityMode } from 'react-native-screens';
-import InicioAdministrador from '../Pages/InicioAdministrador';
-import RegistroUsuario from '../Pages/RegistroUsuario';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Login from "../Pages/Login";
+import InicioUsuario from "../Pages/InicioUsuario";
+import InicioAdministrador from "../Pages/InicioAdministrador";
+import RegistroUsuario from "../Pages/RegistroUsuario";
+import SeleccionModeloCamisa from "../Pages/SeleccionModelo";
+import SeleccionColor from "../Pages/SeleccionarColor";
+import AccesoCamara from "../Pages/AccesoCamara";
+import VistaPrevia from "../Pages/VistaPrevia";
+
+const Tab = createBottomTabNavigator();
 
 export default function Navegacion() {
-
-    const tab= createBottomTabNavigator();
-
   return (
-    
-   <NavigationContainer>
-        <tab.Navigator>
-            <tab.Screen name='Login' component={Login}></tab.Screen>
-             <tab.Screen
-        name='InicioUsuario'
-        component={InicioUsuario}
-        options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-      <tab.Screen
-        name='InicioAdministrador'
-        component={InicioAdministrador}
-        options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-      <tab.Screen
-        name='RegistroUsuario'
-        component={RegistroUsuario}
-        options={{ tabBarButton: () => null}}
-      ></tab.Screen>
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,           
+          tabBarStyle: { display: "none" }, 
+        }}
+      >
+        <Tab.Screen
+          name="Login"
+          component={Login}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="InicioUsuario"
+          component={InicioUsuario}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="InicioAdministrador"
+          component={InicioAdministrador}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="RegistroUsuario"
+          component={RegistroUsuario}
+          options={{ tabBarButton: () => null }}
+        />
 
-
-      // Agrego rene
-        <tab.Screen
-        name='SeleccionModeloCamisa'
-        component={SeleccionModeloCamisa}
-    //    options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-
-
-        <tab.Screen
-        name='SeleccionColor'
-        component={SeleccionColor}
-   //     options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-
-        <tab.Screen
-        name='AccesoCamara'
-        component={AccesoCamara}
-    //    options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-
-      
-        <tab.Screen
-        name='VistaPrevia'
-        component={VistaPrevia}
- //       options={{ tabBarButton: () => null}}
-      ></tab.Screen>
-        </tab.Navigator>
-  </NavigationContainer>
-   
-  )
-} 
+        {/* Agrego rene */}
+        <Tab.Screen
+          name="SeleccionModeloCamisa"
+          component={SeleccionModeloCamisa}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="SeleccionColor"
+          component={SeleccionColor}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="AccesoCamara"
+          component={AccesoCamara}
+          options={{ tabBarButton: () => null }}
+        />
+        <Tab.Screen
+          name="VistaPrevia"
+          component={VistaPrevia}
+          options={{ tabBarButton: () => null }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
