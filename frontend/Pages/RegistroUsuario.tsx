@@ -42,6 +42,7 @@ export default function RegistroUsuario() {
   }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
            async function registroUsuario(nombre: string, contraseña:string, correo:string, direccion:string){
                   if (!nombre || !contraseña || !correo || !direccion) {
                   Alert.alert('Error', 'Por favor, completa todos los campos.');
@@ -74,6 +75,8 @@ export default function RegistroUsuario() {
                        Alert.alert('Ocurrio un error, credenciales incorrectas')
                   }
               }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   return (
