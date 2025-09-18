@@ -33,6 +33,7 @@ export default function Login() {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             let usuario: Usuario={
                 nombre:nombre,
                 contraseña:contraseña
@@ -61,6 +62,8 @@ export default function Login() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
       if (data.success === true && data.noUser === false) {
         Alert.alert("Login Exitoso");
         navigation.navigate("InicioUsuario" as never);
@@ -73,6 +76,9 @@ export default function Login() {
     } catch {
       Alert.alert("Error", "No se pudo conectar con el servidor.");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
