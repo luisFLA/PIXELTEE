@@ -34,7 +34,7 @@ export default function RegistroUsuario() {
                           
                       }
                       
-                  const respuesta= await fetch('http://192.168.1.38:5000/usuarios', {
+                  const respuesta= await fetch('http://localhost:5000/usuarios', {
                       method: 'POST',
                       headers: {
                           'Content-Type': 'application/json'
