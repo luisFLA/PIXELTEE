@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { loginStyles } from "../Estilo/LoginStyle";
+import { Usuario } from "../Modelos/Usuario";
 
 export default function Login() {
   const navigation = useNavigation();
@@ -29,25 +30,11 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, contraseña }),
       });
-      const data = await resp.json();
+  
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            let usuario: Usuario={
-                nombre:nombre,
-                contraseña:contraseña
-            }
+
             
-        const respuesta= await fetch('http://localhost:5000/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(usuario)
-        });
-            
-        const respuestaApi= await respuesta.json()
+        const respuestaApi= await resp.json()
 
         if(respuestaApi.success===true && respuestaApi.noUser===false){
             Alert.alert("Login Exitoso")
@@ -59,29 +46,11 @@ export default function Login() {
          {
              Alert.alert('Ocurrio un error, credenciales incorrectas')
         }
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-      if (data.success === true && data.noUser === false) {
-        Alert.alert("Login Exitoso");
-        navigation.navigate("InicioUsuario" as never);
-      } else if (data.noUser === true && data.success === false) {
-        Alert.alert("Login Exitoso (Admin)");
-        navigation.navigate("InicioAdministrador" as never);
-      } else {
-        Alert.alert("Credenciales incorrectas");
-      }
+
+   
     } catch {
       Alert.alert("Error", "No se pudo conectar con el servidor.");
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
     }
   }
 

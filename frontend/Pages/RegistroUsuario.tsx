@@ -41,47 +41,9 @@ export default function RegistroUsuario() {
     }
   }
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-           async function registroUsuario(nombre: string, contraseña:string, correo:string, direccion:string){
-                  if (!nombre || !contraseña || !correo || !direccion) {
-                  Alert.alert('Error', 'Por favor, completa todos los campos.');
-                  return;
-              }
+
           
-                      let usuario={
-                          nombre:nombre,
-                          contraseña:contraseña,
-                          correo:correo,
-                          direccion:direccion
-                          
-                      }
-                      
-                  const respuesta= await fetch('http://localhost:5000/usuarios', {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json'
-                      },
-                      body:JSON.stringify(usuario)
-                  });
-                      
-                  const respuestaApi= await respuesta.json()
-          
-                  if(respuestaApi.success){
-                     Alert.alert('Registro Exitoso')
-                     navigation.navigate('InicioUsuario' as never)
-                  }else
-                   {
-                       Alert.alert('Ocurrio un error, credenciales incorrectas')
-                  }
-              }
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <StatusBar barStyle="dark-content" />

@@ -16,9 +16,19 @@ export default function InicioUsuario() {
 
       <TouchableOpacity
         style={base.buttonOutline}
-        onPress={() => navigation.navigate("SeleccionModelo" as never)}
+        onPress={() => navigation.navigate("SeleccionModeloCamisa" as never)}
       >
         <Text style={base.buttonOutlineText}>Crear diseño</Text>
+
+        
+      </TouchableOpacity>
+       <TouchableOpacity
+        style={base.buttonOutline}
+        onPress={() => navigation.navigate("AccesoCamara" as never)}
+      >
+        <Text style={base.buttonOutlineText}>Acceso a la camara</Text>
+
+        
       </TouchableOpacity>
     </View>
   );
