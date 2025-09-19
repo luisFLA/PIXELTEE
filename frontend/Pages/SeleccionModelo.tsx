@@ -24,7 +24,7 @@ export default function SeleccionModelo() {
             key={m.id}
             style={[s.cardBox, seleccion === m.id && { borderColor: "#111" }]}
             onPress={() => setSeleccion(m.id)}
-            onLongPress={() => navigation.navigate("SeleccionarColor" as never, { modelo: m.nombre } as never)}
+            onLongPress={() => navigation.navigate("SeleccionColor" as never, { modelo: m.nombre } as never) }
           >
             <Image source={{ uri: `https://picsum.photos/seed/modelo${m.id}/200` }} style={s.image} />
             <Text style={base.cardTitle}>{m.nombre}</Text>
@@ -36,7 +36,7 @@ export default function SeleccionModelo() {
         <TouchableOpacity
           style={base.buttonPrimary}
           onPress={() =>
-            navigation.navigate("SeleccionarColor" as never, {
+            navigation.navigate("SeleccionColor" as never, {
               modelo: MODELOS.find((x) => x.id === seleccion)?.nombre,
             } as never)
           }

@@ -26,12 +26,12 @@ export default function VistaPrevia() {
       <Text style={base.muted}>Color: {color.toUpperCase()}</Text>
 
       <View style={s.actionsRow}>
-        <TouchableOpacity style={base.buttonPrimary} onPress={() => navigation.navigate("SeleccionModelo" as never)}>
+        <TouchableOpacity style={base.buttonPrimary} onPress={() => navigation.navigate("SeleccionModeloCamisa" as never)}>
           <Text style={base.buttonPrimaryText}>Cambiar modelo</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={base.buttonOutline}
-          onPress={() => navigation.navigate("SeleccionarColor" as never, { modelo, fotoUri } as never)}
+          onPress={() => navigation.navigate("SeleccionColor" as never, { modelo, fotoUri } as never)}
         >
           <Text style={base.buttonOutlineText}>Cambiar color</Text>
         </TouchableOpacity>
